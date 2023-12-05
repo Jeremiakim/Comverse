@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GiConverseShoe } from "react-icons/gi";
 
 const LoginPage = ()=>{
@@ -6,11 +7,13 @@ const LoginPage = ()=>{
     <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 sm:m-[28rem] bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-11/12 p-10 sm:p-12">
-            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1">
+            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">
+              <Link href={"/"}>
               <span className="relative text-black">C O M V E R S E</span>
               <span className="relative text-2xl text-black">
                 <GiConverseShoe />
               </span>
+              </Link>
             </div>
             <div className="flex items-center justify-center">
               <h1 className="text-2xl xl:text-3xl font-extrabold">Log-In</h1>
@@ -66,15 +69,14 @@ const LoginPage = ()=>{
                 </div>
                 {/* Email and Password Input */}
                 {/* Sign Up Button */}
-                <p className="mt-6 text-xs text-gray-600 text-center">
-                  {`Don't have an account yet? Sign-Up`}
-                  {/* <Link
-                    to="/register"
-                    className="border-b border-gray-500 border-dotted"
-                  >
-                    Buat akun dulu
-                  </Link> */}
+                <div className="flex flex-row gap-x-1 mt-6 text-xs text-gray-600 text-center justify-center ">
+                <p>
+                  {`Don't have an account yet?`}
                 </p>
+                <Link href={"/register"}>
+                <span className="underline"> Sign-Up</span>
+                </Link>
+                </div>
               </div>
             </div>
           </div>

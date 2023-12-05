@@ -3,7 +3,7 @@ import { GiReturnArrow } from "react-icons/gi";
 import { MdOutlineStars } from "react-icons/md";
 import { GiConverseShoe } from "react-icons/gi";
 import { IoIosHeartEmpty } from "react-icons/io";
-
+import Link from "next/link";
 
 const RegisterPage = ()=>{
     return (
@@ -11,7 +11,7 @@ const RegisterPage = ()=>{
         <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 sm:m-36 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-6/12 p-6 sm:p-10">
-            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1">
+            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">
               <span className="relative text-black">C O M V E R S E</span>
               <span className="relative text-2xl text-black">
                 <GiConverseShoe />
@@ -87,15 +87,14 @@ const RegisterPage = ()=>{
                 </div>
                 {/* Email and Password Input */}
                 {/* Sign Up Button */}
-                <p className="mt-6 text-xs text-gray-600 text-center">
-                  Already have an account? Log-In
-                  {/* <Link
-                    to="/register"
-                    className="border-b border-gray-500 border-dotted"
-                  >
-                    Buat akun dulu
-                  </Link> */}
+                <div className="flex flex-row gap-x-1 mt-6 text-xs text-gray-600 text-center justify-center ">
+                <p>
+                  {`Already have an account?`}
                 </p>
+                <Link href={"/login"}>
+                <span className="underline"> Log-In</span>
+                </Link>
+                </div>
               </div>
             </div>
           </div>
