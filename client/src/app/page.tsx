@@ -2,11 +2,9 @@
 import { Card } from 'flowbite-react';
 import Image from 'next/image'
 import Navbar from "./components/NavbarComponents"
-import { FaInstagram } from "react-icons/fa";
-import { SlSocialTwitter } from "react-icons/sl";
-import { LiaFacebookSquare } from "react-icons/lia";
 import { Carousel } from 'flowbite-react';
 import Link from 'next/link';
+import InfoComponents from './components/InfoComponents';
 
 export default function Home() {
   return (
@@ -43,7 +41,7 @@ export default function Home() {
                           </div>
                           </div>
                       </div>
-                  <Image width={100} height={300} src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
+                  <Image width={1000} height={300} src="/banner-2.jpg" alt="..." />
                   <Image width={100} height={300} src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
                   <Image width={100} height={300} src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
                   <Image width={100} height={300} src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
@@ -52,14 +50,14 @@ export default function Home() {
                 </div>
               </div>
               <div className='grid grid-cols-4 mx-10 gap-3 '>
-    <Card
-      className="max-w-sm"
-      imgAlt="Apple Watch Series 7 in colors pink, silver, and black"
-      imgSrc="/images/products/apple-watch.png"
+              <Card
+      className="max-w-[45rem]"
+      imgAlt="Converse Belmont Vintage Athletic"
+      imgSrc="https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA05414C00509H-1.jpg"
     >
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-          Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+            Converse Belmont Vintage Athletic
         </h5>
       </a>
       <div className="mb-5 mt-2.5 flex items-center">
@@ -107,8 +105,8 @@ export default function Home() {
           5.0
         </span>
       </div>
-      <div className="flex items-center justify-between">
-        <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+      <div className="flex items-center justify-between gap-3">
+        <span className="text-2xl font-bold text-gray-900 dark:text-white">Rp.899999</span>
         <Link
           href="#"
           className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-900 transition delay-150 duration-500"
@@ -118,106 +116,7 @@ export default function Home() {
       </div>
     </Card>
               </div>
-            <div className="grid grid-cols-5 divide-x bg-white">
-                  <div className="my-16 flex flex-col justify-center items-center">
-                    <p className="text-black text-mg font-semibold mb-5">
-                      Never Miss a Beat 
-                    </p>
-                    <p className="text-black mb-5 mt-[2rem] ml-2 text-xs"
-                    >Be the first to hear about product launches, collaborations, and more when you sign up for our emails.</p>
-                     <input
-                  className="w-40 h-[3rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="name"
-                  placeholder="Enter Your Email Address"
-                  name="email"
-                  // value={inputLogin.password}
-                  // onChange={onChange}
-                />
-                  </div>
-                <div>
-                <div className="my-16 flex flex-col justify-center items-center">
-                    <p className="text-black text-mg font-semibold mb-5">
-                      Gift Card
-                    </p>
-                    <p className="text-black mb-5 mt-[2rem] ml-2 text-base   font-semibold">Follow us:</p>
-                    <div className='flex flex-row gap-5 mt-[2rem]'>
-                  <button className='text-2xl text-gray-400 hover:text-[#c1558b] '>
-                      <FaInstagram />
-                  </button>
-                  <button className='text-3xl text-gray-400 hover:text-[#3b5998]'>
-                      <LiaFacebookSquare />
-                  </button>
-                  <button className='text-2xl text-gray-400 hover:text-[#1DA1F2]'>
-                      <SlSocialTwitter />
-                  </button>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                <div className="my-16 flex flex-col justify-center items-center">
-                    <p className="text-black text-mg font-semibold mb-5">
-                      Get Help
-                    </p>
-                    <div className='flex flex-col gap-1 mt-[2rem]'>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                      Contact us
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  Shipping & Delivery
-
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  Orders & Returns
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  FAQ
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  Payment Options
-                  </button>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                <div className="my-16 flex flex-col justify-center items-center">
-                    <p className="text-black text-mg font-semibold mb-5">
-                    About Comverse 
-                    </p>
-                    <div className='flex flex-col gap-1 mt-[2rem]'>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                    Careers & Culture
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  Terms and Conditions
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                  Privacy policy
-                  </button>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                <div className="my-16 flex flex-col justify-center items-center">
-                    <p className="text-black text-mg font-semibold mb-5">
-                    Trending Searches
-                    </p>
-                    <div className='flex flex-col gap-1 mt-[2rem]'>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                    Sepatu Converse
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                    Sepatu Sneaker
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                    Converse One Star
-                  </button>
-                  <button className='text-sm text-gray-400 hover:underline'>
-                    Converse Run Star Hike
-                  </button>
-                    </div>
-                  </div>
-                </div>
-            </div>
+              <InfoComponents/>
           </div>
       </>
   )
