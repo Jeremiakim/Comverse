@@ -1,8 +1,8 @@
 import Link from "next/link";
-import Navbar from "../components/NavbarComponents";
+import Navbar from "../../components/NavbarComponents";
 import { Card } from "flowbite-react";
-import InfoComponents from "../components/InfoComponents";
-import SidebarWishlist from "../components/SidebarWishList";
+import InfoComponents from "../../components/InfoComponents";
+import SidebarWishlist from "../../components/SidebarWishList";
 
 const WishlistPage = () => {
   return (

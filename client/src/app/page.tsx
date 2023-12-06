@@ -1,10 +1,10 @@
 "use client";
 import { Card } from "flowbite-react";
 import Image from "next/image";
-import Navbar from "./components/NavbarComponents";
+import Navbar from "../components/NavbarComponents";
 import { Carousel } from "flowbite-react";
 import Link from "next/link";
-import InfoComponents from "./components/InfoComponents";
+import InfoComponents from "../components/InfoComponents";
 import { FaArrowRight } from "react-icons/fa6";
 
 export default function Home() {
@@ -74,7 +74,7 @@ export default function Home() {
           <div className="ml-[3rem] my-[1rem]">
             <h1 className="font-bold text-4xl">Trending Styles</h1>
           </div>
-          <div className="ml-[4rem] my-[1rem] flex flex-row gap-2">
+          <div className="ml-[4rem] my-[1rem] mr-[55rem] flex flex-row gap-2 hover:scale-105 transition duration-500 cursor-pointer">
             <span className="text-xl">
               <FaArrowRight />
             </span>

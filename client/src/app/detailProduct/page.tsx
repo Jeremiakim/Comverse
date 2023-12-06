@@ -1,7 +1,7 @@
 import Image from "next/image";
-import InfoComponents from "../components/InfoComponents";
-import Navbar from "../components/NavbarComponents";
-import SidebarDetail from "../components/SidebarDetail";
+import InfoComponents from "../../components/InfoComponents";
+import Navbar from "../../components/NavbarComponents";
+import SidebarDetail from "../../components/SidebarDetail";
 
 const DetailProductPage = () => {
   return (
