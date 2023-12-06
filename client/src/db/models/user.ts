@@ -4,6 +4,7 @@ import { hashText } from "../utils/hash";
 
 export type UserModel = {
   _id: ObjectId;
+  name: string;
   username: string;
   email: string;
   password: string;
