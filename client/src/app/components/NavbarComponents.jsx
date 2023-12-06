@@ -7,7 +7,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <>
-      <div className="sticky top-0 z-50 flex justify-between bg-[white] text-neutral-content shadow-md py-1">
+      <div className="w-screen top-0 z-50 flex justify-between bg-[white] text-neutral-content shadow-md py-1 position: fixed">
         <div className="flex my-[0.5rem] ml-[1.5rem]">
           <div className="flex-2 my-[0.5rem] mr-[1rem]">
             <Link

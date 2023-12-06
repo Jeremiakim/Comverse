@@ -8,7 +8,7 @@ import Link from "next/link";
 const RegisterPage = ()=>{
     return (
         <>
-        <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+        <div className="min-h-screen bg-gray-600 text-gray-900 flex justify-center -mt-[8rem]">
         <div className="max-w-screen-xl m-0 sm:m-36 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-6/12 p-6 sm:p-10">
             <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">
@@ -98,7 +98,7 @@ const RegisterPage = ()=>{
               </div>
             </div>
           </div>
-          <div className="border-r-2 border-gray-300"></div>
+          <div className="border-r-2 border-gray-400 my-[5rem]"></div>
           <div className="flex-1 hidden lg:flex">
             <div className=" flex-3 my-20 mx-16">
               <h1 className="text-2xl xl:text-3xl font-extrabold mb-5">
@@ -106,7 +106,7 @@ const RegisterPage = ()=>{
               </h1>
               <p className="mb-7">
                 Create an account for a super fast checkout, save your
-                favourites, and get personalised suggestions across Converse.id
+                favourites, and get personalised suggestions across Comverse
               </p>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-row gap-x-2">

@@ -4,11 +4,11 @@ import { GiConverseShoe } from "react-icons/gi";
 const LoginPage = ()=>{
     return (
         <>
-    <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+    <div className="min-h-screen bg-gray-300 text-gray-900 flex justify-center -mt-[25rem]">
         <div className="max-w-screen-xl m-0 sm:m-[28rem] bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-11/12 p-10 sm:p-12">
-            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">
-              <Link href={"/"}>
+            <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 ">
+              <Link href={"/"} className="flex flex-row gap-2">
               <span className="relative text-black">C O M V E R S E</span>
               <span className="relative text-2xl text-black">
                 <GiConverseShoe />

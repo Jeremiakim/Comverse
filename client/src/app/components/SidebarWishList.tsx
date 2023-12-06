@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Sidebar = () => {
+const SidebarWishlist = () => {
   return (
     <aside className="w-64 h-full bg-white border-2 border-gray-900 dark:bg-zinc-800/30 mx-5 mt-10">
       <ul className="my-3">
@@ -67,7 +67,7 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarWishlist;
 
 
 
