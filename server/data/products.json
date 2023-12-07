@@ -1,6 +1,6 @@
 [
     {
-      "nama": "Converse Chuck Taylor All Star High Top",
+      "name": "Converse Chuck Taylor All Star High Top",
       "slug": "converse-chuck-taylor-all-star-high-top",
       "description": "Sepatu Converse Chuck Taylor All Star versi high top dengan desain klasik.",
       "excerpt": "Desain klasik sepatu Converse high top.",
@@ -12,7 +12,7 @@
       "updatedAt": "2023-01-01"
     },
     {
-      "nama": "Converse Chuck Taylor All Star Low Top",
+      "name": "Converse Chuck Taylor All Star Low Top",
       "slug": "converse-chuck-taylor-all-star-low-top",
       "description": "Sepatu Converse Chuck Taylor All Star versi low top dengan desain yang ringan dan nyaman.",
       "excerpt": "Desain ringan sepatu Converse low top.",
@@ -24,7 +24,7 @@
       "updatedAt": "2023-01-02"
     },
     {
-      "nama": "Converse Chuck 70 High Top",
+      "name": "Converse Chuck 70 High Top",
       "slug": "converse-chuck-70-high-top",
       "description": "Sepatu Converse Chuck 70 versi high top dengan nuansa retro yang menarik.",
       "excerpt": "Desain retro sepatu Converse Chuck 70 high top.",
@@ -36,7 +36,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Run Star Motion CX Platform Golden Hits",
+      "name": "Run Star Motion CX Platform Golden Hits",
       "slug": "run-star-motion-cX-platform-golden-hits",
       "description": "GOLDEN HOUR Hadir dengan mencerminkan energi jalan-jalan perkotaan, sepatu Run Star Motion kembali dengan peningkatan bergaya glam dengan sentuhan emas yang halus. Sepatu ini dihiasi dengan garis dengan tampilan yang menarik dan terdistorsi untuk memperikan.",
       "excerpt": "Desain Platfrom sepatu Converse Varian Run Star Motion.",
@@ -48,7 +48,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Star Player 76 Premium Canvas White",
+      "name": "Star Player 76 Premium Canvas White",
       "slug": "star-player-76-premium-canvas-white",
       "description": "Mengenalkan (kembali) Star Player 76. Berawal dari olahraga, dilahirkan kembali bagi jalanan.",
       "excerpt": "Desain retro sepatu Converse Chuck 70 high top.",
@@ -60,7 +60,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Run Star Legacy CX - Eyerow Future Archive",
+      "name": "Run Star Legacy CX - Eyerow Future Archive",
       "slug": "run-star-legacy-cX-eyerow-future-archive",
       "description": "Sepatu Converse Chuck 70 versi high top dengan nuansa retro yang menarik.",
       "excerpt": "Desain sepatu Run Star Legacy CX - Eyerow Future Archive.",
@@ -72,7 +72,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Run Star Hike Racer Revival",
+      "name": "Run Star Hike Racer Revival",
       "slug": "run-star-hike-racer-revival",
       "description": "Sepatu Converse Run Star Hike Racer Revival yang menarik.",
       "excerpt": "Desain sepatu Run Star Hike Racer Revival.",
@@ -84,7 +84,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Run Star Legacy CX",
+      "name": "Run Star Legacy CX",
       "slug": "run-star-legacy-cx",
       "description": "Bantalan ultra-nyaman dan platform bersudut yang ringan meghadirkan gaya masa depan pada tampilan sneaker Anda.",
       "excerpt": "Desain sepatu Run Star Legacy CX dengan tambahan bantalan yg nyaman.",
@@ -96,7 +96,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Chuck 70 AT-CX White",
+      "name": "Chuck 70 AT-CX White",
       "slug": "chuck-70-aT-cx-white",
       "description": "Sepatu Chuck 70 bertransformasi untuk masa depan dengan fitur lebih besar dan sebuah sol platform.",
       "excerpt": "Desain sepatu Chuck 70 AT-CX dengan design fitur masa depan berwarna putih.",
@@ -108,7 +108,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse x Comme des Garçons PLAY Chuck 70 Multi Heart",
+      "name": "Converse x Comme des Garçons PLAY Chuck 70 Multi Heart",
       "slug": "converse-x-comme-des-garçons-play-chuck-70-multi-heart",
       "description": "Converse x Comme des Garçons PLAY Chuck 70 Unisex's Sneakers - Milk/Black/Egret.",
       "excerpt": "Desain sepatu Converse Collab with comme des garcos dengan nuansa chuck 70",
@@ -120,7 +120,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse One Star Pro Blue Light",
+      "name": "Converse One Star Pro Blue Light",
       "slug": "converse-one-star-pro-blue-light",
       "description": "Awake NY menggabungkan semangat punk New York tahun 90-an ke dalam One Star Pro yang siap digunakan untuk meluncur.",
       "excerpt": "Desain sepatu One Star Pro.",
@@ -132,7 +132,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Chuck Taylor Alt Star Seasonal Color Canvas",
+      "name": "Converse Chuck Taylor Alt Star Seasonal Color Canvas",
       "slug": "converse-chuck-taylor-alt-star-seasonal-color-canvas",
       "description": "COLOR COUP D'ETAT Sepatu Chucks klasik anda kini hadir kembali dengan semua fitur ikoniknya (yang pastinya anda kenali dan sukai) untuk mengambil alih musim dingin dengan spektrum warna yang edgy dan detail desain tak terduga yang sesuai dengan suasana.",
       "excerpt": "Desain sepatu Chuck Taylor Alt Star Seasonal Color Canvas yg classic.",
@@ -144,7 +144,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse All Star Bb Trilliant CX Sport Style Wolfpack",
+      "name": "Converse All Star Bb Trilliant CX Sport Style Wolfpack",
       "slug": "converse-all-star-bb-trilliant-cx-sport-style-wolfpack",
       "description": "GAME DAY BOOST Sepatu All Star BB Trilliant CX hadir untuk membantu menangani semua aspek permainan anda. Dari langkah pertama hingga bidikan terakhir, sepatu ini menambahkan pantulan di setiap langkah anda dengan unit Nike Zoom Air.",
       "excerpt": "Desain sepatu All Star Bb Trilliant CX Sport Style Wolfpack yg sangat menarik dan elegan.",
@@ -156,7 +156,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Chuck Taylor All Star Malden Street",
+      "name": "Converse Chuck Taylor All Star Malden Street",
       "slug": "converse-chuck-taylor-all-star-malden-street",
       "description": "WE NEED TO TALK ABOUT WINTER Jangan biarkan cuaca musim dingin merusak penampilan anda. Sepatu ikonik ini hadir untuk menghangatkan kaki anda dengan upper berbahan faux, bagian lidah dan kerah sepatu yang empuk, dan bantalan OrthoLite yang tahan lama.",
       "excerpt": "Desain sepatu Chuck Taylor All Star Malden Street dengan bahan kulit.",
@@ -168,7 +168,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Chuck Taylor All Star Malden Craft Remastered",
+      "name": "Converse Chuck Taylor All Star Malden Craft Remastered",
       "slug": "converse-chuck-taylor-all-star-malden-craft-remastered",
       "description": "Sepanjang hari bergerak Siap bermain - Chuck Taylor ini semua bintang Maldens diremasikan dan disempurnakan dengan gerakan dalam pikiran.",
       "excerpt": "Desain sepatu Chuck Taylor All Star Malden Craft Remastered.",
@@ -180,7 +180,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Chuck 70 Garden Noir",
+      "name": "Converse Chuck 70 Garden Noir",
       "slug": "converse-chuck-70-garden-noir",
       "description": "Rasa kerawang bunga Mengambil isyarat dari Spirit of Home, yang terbaik yang pernah Chuck 70 menarik inspirasi dari desain wallpaper yang halus. Bagian atas jacquard anyaman dihiasi dengan bordir bunga barok untuk tampilan abadi. Lengkap dengan elemen desain.",
       "excerpt": "Desain Converse Chuck 70 Garden Noir.",
@@ -192,7 +192,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Fastbreak Pro",
+      "name": "Converse Fastbreak Pro",
       "slug": "converse-fastbreak-pro",
       "description": "FASTBREAK PRO Pada tahun 1983 Converse mencapai puncaknya di pasar bola basket, tidak ada yang bisa menandingi inovasi dan gaya sepatu Converse di lapangan. Faktanya, Converse Fastbreak adalah salah satu sepatu favorit Michael Jordan sepanjang masa.",
       "excerpt": "Desain sepatu Converse Fastbreak Pro.",
@@ -204,7 +204,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse CONS One Star Pro Alltimers",
+      "name": "Converse CONS One Star Pro Alltimers",
       "slug": "converse-cONS-one-star-pro-alltimers",
       "description": "Desainer dari NYC mengembalikan daya tarik khas sepatu basket tahun ‘9-an dan bahan-bahan mewah ke dalam One Star Pro klasik untuk kolaborasi Converse CONS pertamanya.",
       "excerpt": "Desain sepatu Converse CONS One Star Pro Alltimers dari NYC.",
@@ -216,19 +216,19 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse x LFC Star Player 76",
+      "name": "Converse x LFC Star Player 76",
       "slug": "converse-x-lFC-star-player-76",
       "description": "Converse x LFC Star Player 76 Men's Sneakers - Tomato/Egret/Black.",
       "excerpt": "Desain sepatu Converse x LFC Star Player 76.",
       "price": 1799999,
       "tags": ["Converse", "Lfc", "Star Player 76"],
-      "thumbnail": "converse-chuck-70-high-top-thumbnail.jpg",
-      "images": ["converse-chuck-70-high-top-img1.jpg", "converse-chuck-70-high-top-img2.jpg"],
+      "thumbnail": "https://www.converse.com/dw/image/v2/BJJF_PRD/on/demandware.static/-/Sites-cnv-master-catalog-we/default/dw5234f9cf/images/a_107/A07257C_A_107X1.jpg?sw=964",
+      "images": ["https://www.converse.com/dw/image/v2/BJJF_PRD/on/demandware.static/-/Sites-cnv-master-catalog-we/default/dwb8684c88/images/d_08/A07257C_D_08X1.jpg?sw=406", "https://www.converse.com/dw/image/v2/BJJF_PRD/on/demandware.static/-/Sites-cnv-master-catalog-we/default/dwe93016bd/images/f_08/A07257C_F_08X1.jpg?sw=406"],
       "createdAt": "2023-01-03",
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Louie Lopez Pro Suede",
+      "name": "Converse Louie Lopez Pro Suede",
       "slug": "converse-louie-lopez-pro-suede",
       "description": "ICON x ICON Sepatu klasik Converse kini berpadu dengan rasa modern dari sepatu Louie Lopez. Dengan bahan suede berlapis karet untuk menambah daya tahan dan insole yang terbuat dari busa CX untuk bantalan benturan ekstra.",
       "excerpt": "Desain sepatu Converse Louie Lopez Pro Suede.",
@@ -240,7 +240,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse Belmont Vintage Athletic",
+      "name": "Converse Belmont Vintage Athletic",
       "slug": "converse-belmont-vintage-athletic",
       "description": "GLORY DAYS Masuk ke dalam masa depan ketika pakaian Anda mengacu pada masa lalu. Belmonts vintage ini memberikan kesan retro dengan Star Chevron kulit faux klasik.",
       "excerpt": "Desain sepatu Converse Belmont Vintage Athletic.",
@@ -252,7 +252,7 @@
       "updatedAt": "2023-01-03"
     },
     {
-      "nama": "Converse x FRGMT Weapon",
+      "name": "Converse x FRGMT Weapon",
       "slug": "converse-x-fRGMT-weapon",
       "description": "Hiroshi Fujiwara memberi kejutan minimalis khas pada Converse Weapon dengan blok warna klasik yang terinspirasi dari koleksi sepatu olahraga kami.",
       "excerpt": "Desain sepatu Converse x FRGMT Weapon.",
