@@ -10,13 +10,12 @@ import { ProductModel } from "@/db/models/product";
 
 const fetchProducts = async () => {
   const response = await fetch("http://localhost:3000/apis/products");
-  const data:ProductModel[] = await response.json();
+  const data: ProductModel[] = await response.json();
   return data;
 };
 
 const Home = async () => {
   const products = await fetchProducts();
-  console.log(products);
   return (
     <div>
       <Navbar />
@@ -93,7 +92,7 @@ const Home = async () => {
           </div>
           <div className="grid grid-cols-4 mx-5 gap-3">
             <Card
-              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
               imgAlt=""
               imgSrc="/chuck-l.jpg"
             >
@@ -104,7 +103,7 @@ const Home = async () => {
               </a>
             </Card>
             <Card
-              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
               imgAlt=""
               imgSrc="/chuck-h.jpg"
             >
@@ -115,7 +114,7 @@ const Home = async () => {
               </a>
             </Card>
             <Card
-              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
               imgAlt=""
               imgSrc="/chuck-p.jpg"
             >
@@ -126,7 +125,7 @@ const Home = async () => {
               </a>
             </Card>
             <Card
-              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
               imgAlt=""
               imgSrc="/comverse-p.jpg"
             >
@@ -141,76 +140,40 @@ const Home = async () => {
             <Image width={5000} height={300} src="/banner-red.jpg" alt="..." />
           </div>
           <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
-            {products.map((product) => {
-              return(
-              <Card
-                className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer"
-                imgAlt="Converse Belmont Vintage Athletic"
-                imgSrc="https://www.converse.id/media/catalog/product/cache/e81e4f913a1cad058ef66fea8e95c839/0/8/0888-CONA05414C00509H-1.jpg"
-              >
-                <a href="#">
-                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {product.nama}
-                  </h5>
-                </a>
-                <div className="mb-5 mt-2.5 flex items-center">
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
+            {products.data.map((product) => {
+              return (
+                <Link href={`/products/${product.slug}`} key={product._id}>
+                  <Card
+                    className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer"
+                    imgAlt="Converse Belmont Vintage Athletic"
+                    imgSrc={product.thumbnail}
                   >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                  <span className="ml-3 mr-2 rounded bg-cyan-100 px-2.5 py-0.5 text-xs font-semibold text-cyan-800 dark:bg-cyan-200 dark:text-cyan-800">
-                    5.0
-                  </span>
-                </div>
-                <div className="flex items-center justify-between gap-3">
-                  <span className="text-2xl font-bold text-gray-900 dark:text-white">
-                    Rp.899999
-                  </span>
-                  <Link
-                    href="#"
-                    className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-900 transition delay-150 duration-500"
-                  >
-                    Add to cart
-                  </Link>
-                </div>
-              </Card>;
-              )
+                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                      {product.name}
+                    </h5>
+
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="text-lg font-medium text-gray-900 dark:text-white">
+                        Rp.{product.price}
+                      </span>
+                      {/* <Link
+                      href="#"
+                      className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-900 transition delay-150 duration-500"
+                    >
+                      Add to cart
+                    </Link> */}
+                    </div>
+                    <div className="mt-2.5 flex items-center gap-3">
+                      <div className="rounded-full h-5 w-5 bg-black flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                      <div className="rounded-full h-5 w-5 bg-[#952323] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                      <div className="rounded-full h-5 w-5 bg-white flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer border"></div>
+                      <div className="rounded-full h-5 w-5 bg-[#527853] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                      <div className="rounded-full h-5 w-5 bg-blue-400 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                      <div className="rounded-full h-5 w-5 bg-yellow-300 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                    </div>
+                  </Card>
+                </Link>
+              );
             })}
           </div>
         </div>
@@ -219,5 +182,4 @@ const Home = async () => {
     </div>
   );
 };
-
 export default Home;

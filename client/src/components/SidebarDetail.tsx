@@ -2,23 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
 
-const SidebarDetail = () => {
+const SidebarDetail = ({ products }) => {
   return (
     <aside className="sticky w-[24rem] h-full bg-white border-2 border-white dark:bg-zinc-800/30 top-10">
       <ul className="my-3">
         <li className="flex w-full px-8 py-2 text-black font-semibold text-xl mt-6">
-          Chuck 70
+          {products.name}
         </li>
-        <li className="flex w-full px-8 py-2 text-black text-sm">Rp.999.000</li>
         <li className="flex w-full px-8 py-2 text-black text-sm">
-          Di tahun 1970, Chuck Taylor All Star berubah menjadi salah satu
-          sneakers basket terbaik yang pernah ada. Chuck 70 merayakan warisan
-          tersebut dengan menyatukan detail yang berasal dari arsip-arsip dengan
-          pembaharuan modern. Bantalan insole Ortholite dan jahitan lidah
-          bersayap menjadikan kenyamanan jauh lebih baik lagi. Midsole egret
-          glossy dan patch bintang pergelangan kaki yang khas menguarkan gaya
-          vintage dan ikonik dari sepatu ini. Terbaharui dalam warna-warna arsip
-          pada kanvas premium.
+          Rp.{products.price}
+        </li>
+        <li className="flex w-full px-8 py-2 text-black text-sm mb-[1rem]">
+          {products.description}
         </li>
         <div className="border-b-2 border-gray-400 mx-2"></div>
         <li className="flex w-full px-8 py-2 text-black text-sm mt-2">Color</li>
@@ -70,7 +65,7 @@ const SidebarDetail = () => {
             </label>
             <select
               id="underline_select"
-              className="block py-2.5 px-[1rem] w-[20rem] text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-100 peer"
+              className="block py-2.5 mb-[1rem] px-[1rem] w-[20rem] text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-100 peer"
             >
               <option selected>Choose Your Size</option>
               <option value="">45</option>
@@ -106,7 +101,7 @@ const SidebarDetail = () => {
           </div>
         </li>
         <div className="flex flex-row mx-[3rem]">
-          <li className="px-8 py-4 text-black">Add To Cart</li>
+          <li className="px-8 py-4 text-black">Add To Wishlist</li>
           <li className="flex-2 my-[0.7rem] mr-[1rem]">
             <Link
               href={"/wishlist"}

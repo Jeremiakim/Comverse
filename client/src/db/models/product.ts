@@ -2,7 +2,7 @@ import { getMongoClientInstance } from "../configs";
 import { Db, ObjectId } from "mongodb";
 
 export type ProductModel = {
-  _id: number;
+  _id: ObjectId;
   nama: string;
   slug: string;
   description: string;
@@ -33,8 +33,19 @@ export const getProducts = async () => {
   const products = (await db
     .collection(COLLECTION_PRODUCT)
     .find()
-    .project({ password: 0 })
     .toArray()) as ProductModel[];
 
   return products;
+};
+
+export const getProductBySlug = async (slug: string) => {
+  const db = await getDb();
+  // const objectId = new ObjectId(id);
+  console.log(slug);
+
+  const user = (await db
+    .collection(COLLECTION_PRODUCT)
+    .findOne({ slug })) as ProductModel;
+
+  return user;
 };
