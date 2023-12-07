@@ -1,19 +1,29 @@
-"use server";
+"use client";
 import Link from "next/link";
 import InfoComponents from "../../components/InfoComponents";
 import Navbar from "../../components/NavbarComponents";
 import SidebarProducts from "../../components/SidebarProducts";
 import { Card } from "flowbite-react";
 import { ProductModel } from "@/db/models/product";
+import { FaHeart } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
-const fetchProducts = async () => {
-  const response = await fetch("http://localhost:3000/apis/products");
-  const data: ProductModel[] = await response.json();
-  return data;
-};
+const ProductsPage = () => {
+  const [products, setProducts] = useState([]);
 
-const ProductsPage = async () => {
-  const products = await fetchProducts();
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const response = await fetch("http://localhost:3000/apis/products");
+      const data: ProductModel[] = await response.json();
+
+      setProducts(data.data);
+
+      // const data: ProductModel[] = await response.json();
+      // return data;
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <>
       <div>
@@ -39,26 +49,28 @@ const ProductsPage = async () => {
           {/* PEMBATAS CARD ATAS */}
           <div>
             <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
-              {products.data.map((product) => {
+              {products.map((product) => {
                 return (
                   <Link href={`/products/${product.slug}`} key={product._id}>
                     <Card
-                      className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[25rem]"
+                      className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer relative h-[22rem]"
                       imgAlt="Converse Belmont Vintage Athletic"
                       imgSrc={product.thumbnail}
                     >
-                      <h5 className="flex h-[3rem] mb-[1rem] -mt-[10px] text-mg font-semibold tracking-tight text-gray-900 dark:text-white">
+                      <h5 className="flex h-[1rem] -mt-[10px] text-mg font-semibold tracking-tight text-gray-900 dark:text-white">
                         {product.name}
                       </h5>
-                      <div className="flex flex-col gap-2 h-[1rem] mt-[1rem]">
+                      <div className="flex flex-col gap-2 h-[1rem] mt-[4rem]">
                         <span className="text-sm font-medium text-gray-900 dark:text-white">
                           Rp.{product.price}
                         </span>
                       </div>
-                      <div>
-                        <button className="rounded-lg w-full bg-cyan-700 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-900 transition delay-150 duration-500">
-                          Add to Wishlists
-                        </button>
+                      <div className="absolute top-2 right-2 ">
+                        <Link href={"/wishlist"}>
+                          <button className=" text-white hover:text-red-500 dark:focus:ring-cyan-900 transition delay-150 duration-500">
+                            <FaHeart size={25} />
+                          </button>
+                        </Link>
                       </div>
                     </Card>
                   </Link>

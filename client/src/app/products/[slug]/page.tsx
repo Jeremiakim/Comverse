@@ -5,12 +5,8 @@ import Image from "next/image";
 import { ProductModel } from "@/db/models/product";
 
 const fecthProductBySlug = async (slug: string) => {
-  "use client";
+  "use server";
   const response = await fetch(`http://localhost:3000/apis/products/${slug}`);
-
-  if (!response.ok) {
-    throw new Error(`FAILED_FETCH_JOKE_${slug}`);
-  }
 
   const data: ProductModel = await response.json();
   return data;
@@ -19,15 +15,15 @@ const fecthProductBySlug = async (slug: string) => {
 const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const product = await fecthProductBySlug(slug);
-
   const products = product.data;
+
   return (
     <>
       <div>
         <Navbar />
       </div>
       <div className="flex flex-row justify-end">
-        {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
         <div className="flex flex-col">
           <div>
             <Image
@@ -41,7 +37,7 @@ const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
             {products.images.map((image) => {
               return (
                 <div key={products._id}>
-                  <Image width={3000} height={40} src={image} alt="..." />;
+                  <Image width={3000} height={40} src={image} alt="..." />
                 </div>
               );
             })}

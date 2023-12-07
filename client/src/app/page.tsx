@@ -11,7 +11,12 @@ import { ProductModel } from "@/db/models/product";
 const fetchProducts = async () => {
   const response = await fetch("http://localhost:3000/apis/products");
   const data: ProductModel[] = await response.json();
-  return data;
+  // console.log(data.data);
+
+  const limitedProducts = data.data.slice(0, 8); // Ambil 10 produk pertama dari data
+
+  return limitedProducts;
+  // return data;
 };
 
 const Home = async () => {
@@ -91,85 +96,88 @@ const Home = async () => {
             </Link>
           </div>
           <div className="grid grid-cols-4 mx-5 gap-3">
-            <Card
-              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
-              imgAlt=""
-              imgSrc="/chuck-l.jpg"
-            >
-              <a href="#">
-                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  LOW TOP
-                </h5>
-              </a>
-            </Card>
-            <Card
-              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
-              imgAlt=""
-              imgSrc="/chuck-h.jpg"
-            >
-              <a href="#">
-                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  HIGH TOP
-                </h5>
-              </a>
-            </Card>
-            <Card
-              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
-              imgAlt=""
-              imgSrc="/chuck-p.jpg"
-            >
-              <a href="#">
-                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  COMFORT
-                </h5>
-              </a>
-            </Card>
-            <Card
-              className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
-              imgAlt=""
-              imgSrc="/comverse-p.jpg"
-            >
-              <a href="#">
-                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  PLATFORM
-                </h5>
-              </a>
-            </Card>
+            <Link href={"/products"}>
+              <Card
+                className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+                imgAlt=""
+                imgSrc="/chuck-l.jpg"
+              >
+                <a href="#">
+                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    LOW TOP
+                  </h5>
+                </a>
+              </Card>
+            </Link>
+            <Link href={"/products"}>
+              <Card
+                className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+                imgAlt=""
+                imgSrc="/chuck-h.jpg"
+              >
+                <a href="#">
+                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    HIGH TOP
+                  </h5>
+                </a>
+              </Card>
+            </Link>
+            <Link href={"/products"}>
+              <Card
+                className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+                imgAlt=""
+                imgSrc="/chuck-p.jpg"
+              >
+                <a href="#">
+                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    COMFORT
+                  </h5>
+                </a>
+              </Card>
+            </Link>
+            <Link href={"/products"}>
+              <Card
+                className="max-w-[45rem] hover:scale-90 transition duration-500 cursor-pointer bg-[#F7F7F7]"
+                imgAlt=""
+                imgSrc="/comverse-p.jpg"
+              >
+                <a href="#">
+                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    PLATFORM
+                  </h5>
+                </a>
+              </Card>
+            </Link>
           </div>
           <div className="my-[3rem]">
             <Image width={5000} height={300} src="/banner-red.jpg" alt="..." />
           </div>
           <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
-            {products.data.map((product) => {
+            {products.map((product) => {
               return (
                 <Link href={`/products/${product.slug}`} key={product._id}>
                   <Card
-                    className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer"
+                    className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[30rem]"
                     imgAlt="Converse Belmont Vintage Athletic"
                     imgSrc={product.thumbnail}
                   >
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    <h5 className="flex h-[3rem] mb-[1rem] -mt-[5px] text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
                       {product.name}
                     </h5>
-
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="text-lg font-medium text-gray-900 dark:text-white">
+                    <div className="flex flex-col gap-2 h-[1rem] mt-[1rem]">
+                      <span className="text-mg font-medium text-gray-900 dark:text-white">
                         Rp.{product.price}
                       </span>
-                      {/* <Link
-                      href="#"
-                      className="rounded-lg bg-cyan-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-300 dark:bg-cyan-600 dark:hover:bg-cyan-700 dark:focus:ring-cyan-900 transition delay-150 duration-500"
-                    >
-                      Add to cart
-                    </Link> */}
                     </div>
-                    <div className="mt-2.5 flex items-center gap-3">
-                      <div className="rounded-full h-5 w-5 bg-black flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
-                      <div className="rounded-full h-5 w-5 bg-[#952323] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
-                      <div className="rounded-full h-5 w-5 bg-white flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer border"></div>
-                      <div className="rounded-full h-5 w-5 bg-[#527853] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
-                      <div className="rounded-full h-5 w-5 bg-blue-400 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
-                      <div className="rounded-full h-5 w-5 bg-yellow-300 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                    <div>
+                      <div className=" flex items-center gap-3 h-[2rem] mt-[1rem]">
+                        <div className="rounded-full h-5 w-5 bg-black flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                        <div className="rounded-full h-5 w-5 bg-[#952323] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                        <div className="rounded-full h-5 w-5 bg-white flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer border"></div>
+                        <div className="rounded-full h-5 w-5 bg-[#527853] flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                        <div className="rounded-full h-5 w-5 bg-blue-400 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                        <div className="rounded-full h-5 w-5 bg-yellow-300 flex items-center justify-center hover:scale-125 transition duration-200 cursor-pointer"></div>
+                      </div>
                     </div>
                   </Card>
                 </Link>

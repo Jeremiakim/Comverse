@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
@@ -9,7 +10,7 @@ const SidebarDetail = ({ products }) => {
         <li className="flex w-full px-8 py-2 text-black font-semibold text-xl mt-6">
           {products.name}
         </li>
-        <li className="flex w-full px-8 py-2 text-black text-sm">
+        <li className="flex w-full px-8 py-2 my-[1rem] text-black text-sm">
           Rp.{products.price}
         </li>
         <li className="flex w-full px-8 py-2 text-black text-sm mb-[1rem]">

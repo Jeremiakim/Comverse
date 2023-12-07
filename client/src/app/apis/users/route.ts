@@ -2,6 +2,7 @@ import { getUsers } from "@/db/models/user";
 
 export const GET = async () => {
   const users = await getUsers();
+  console.log(users);
 
   return Response.json(
     {
