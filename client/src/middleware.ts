@@ -25,18 +25,3 @@ export const middleware = async (req: NextRequest) => {
         error: "Unauthorized",
       });
     }
-
-    const tokenData = await readPayloadJose<{ id: string; email: string }>(
-      token.value
-    );
-
-    const requestHeaders = new Headers(req.headers);
-    requestHeaders.set("x-user-id", tokenData.id);
-    requestHeaders.set("x-user-email", tokenData.email);
-
-    return NextResponse.json({
-      headers: requestHeaders,
-    });
-  }
-  return NextResponse.next();
-};
