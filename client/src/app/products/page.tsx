@@ -6,8 +6,8 @@ import SidebarProducts from "../../components/SidebarProducts";
 import { Card } from "flowbite-react";
 import { ProductModel } from "@/db/models/product";
 import { FaHeart } from "react-icons/fa";
-import { useEffect, useState } from "react";
 import { MyResponse } from "../apis/products/route";
+import { useEffect, useState } from "react";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<ProductModel[]>([]);
@@ -18,12 +18,10 @@ const ProductsPage = () => {
       const data: MyResponse<ProductModel[]> = await response.json();
 
       setProducts(data.data);
-
-      // const data: ProductModel[] = await response.json();
-      // return data;
     };
     fetchProducts();
   }, []);
+  console.log(products);
 
   return (
     <>

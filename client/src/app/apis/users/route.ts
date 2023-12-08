@@ -24,10 +24,10 @@ const userInput = z.object({
 export const GET = async (req: NextRequest) => {
   const users = await getUsers();
 
-  console.log("INSIDE GET /api/users");
-  console.log("x-user-id", req.headers.get("x-user-id"));
-  console.log("x-user-email", req.headers.get("x-user-email"));
-  console.log("x-custom-value", req.headers.get("x-custom-value"));
+  // console.log("INSIDE GET /api/users");
+  // console.log("x-user-id", req.headers.get("x-user-id"));
+  // console.log("x-user-email", req.headers.get("x-user-email"));
+  // console.log("x-custom-value", req.headers.get("x-custom-value"));
 
   return Response.json(
     {
@@ -61,7 +61,7 @@ export const POST = async (req: Request) => {
     );
   } catch (err) {
     if (err instanceof z.ZodError) {
-      // console.log(err);
+      console.log(err);
 
       const errPath = err.issues[0].path[0];
       const errMessage = err.issues[0].message;

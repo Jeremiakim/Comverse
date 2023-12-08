@@ -26,23 +26,3 @@ export const GET = async (
     }
   );
 };
-
-type PutProps = { params: { slug: string } };
-type PutResponse = {
-  iseng: string;
-  angkaDah: number;
-  tambahSatu?: number;
-  statusCode: number;
-};
-export const PUT = (req: NextRequest, { params }: PutProps) => {
-  return NextResponse.json<PutResponse>(
-    {
-      iseng: "Aja",
-      angkaDah: 100,
-      statusCode: 200,
-    },
-    {
-      status: 200,
-    }
-  );
-};

@@ -18,22 +18,24 @@ const RegisterPage = () => {
       error?: string;
     };
 
-    const response = await fetch(`http://localhost:3000/apis/users`, {
-      method: "POST",
-      body: JSON.stringify({
-        name: FormData.get("name"),
-        username: FormData.get("username"),
-        email: FormData.get("email"),
-        password: FormData.get("password"),
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `http://localhost:3000/apis/users`,
+
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: FormData.get("name"),
+          username: FormData.get("username"),
+          email: FormData.get("email"),
+          password: FormData.get("password"),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const responseJson: MyResponse<unknown> = await response.json();
     if (!response.ok) {
-      console.log(responseJson.error, "<<<<<<<<");
-
       let message =
         responseJson.error ?? "Something Wrong, Please Check Again Your Input";
       return redirect(`register?error=${message}`);
