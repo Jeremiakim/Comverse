@@ -4,19 +4,16 @@ import { hashText } from "../utils/hash";
 
 export type UserModel = {
   _id: ObjectId;
-  name: string;
+  name?: string;
   username: string;
   email: string;
   password: string;
-
 };
 
 export type UserModelCreateInput = Omit<UserModel, "_id">;
 
-
 const DATABASE_NAME = process.env.MONGODB_DB_NAME || "Comverse";
 const COLLECTION_USER = "Users";
-
 
 export const getDb = async () => {
   const client = await getMongoClientInstance();
@@ -39,16 +36,24 @@ export const getUsers = async () => {
 };
 
 export const createUser = async (user: UserModelCreateInput) => {
-
+  const db = await getDb();
+  const findUser = await db.collection(COLLECTION_USER).findOne({
+    $or: [{ username: user.username }, { email: user.email }],
+  });
+  // if (findUser) {
+  //   if (user.username === findUser.username) {
+  //     throw new Error("Username Is Already Exists");
+  //   }
+  //   if (user.email === findUser.email) {
+  //     throw new Error("Email Is Already Exists");
+  //   }
+  // }
   const modifiedUser: UserModelCreateInput = {
     ...user,
     password: hashText(user.password),
   };
 
-  const db = await getDb();
-  const result = await db
-    .collection(COLLECTION_USER)
-    .insertOne(modifiedUser);
+  const result = await db.collection(COLLECTION_USER).insertOne(modifiedUser);
 
   return result;
 };

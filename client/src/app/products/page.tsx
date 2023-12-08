@@ -9,7 +9,7 @@ import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 const ProductsPage = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductModel[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {

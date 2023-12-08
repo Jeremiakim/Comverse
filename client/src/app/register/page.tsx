@@ -4,11 +4,45 @@ import { MdOutlineStars } from "react-icons/md";
 import { GiConverseShoe } from "react-icons/gi";
 import { IoIosHeartEmpty } from "react-icons/io";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import ClientFlashComponent from "@/components/ClientFlashComponent";
 
-const RegisterPage = ()=>{
-    return (
-        <>
-        <div className="min-h-screen bg-gray-600 text-gray-900 flex justify-center -mt-[8rem]">
+const RegisterPage = () => {
+  const actionForm = async (FormData: FormData) => {
+    "use server";
+
+    type MyResponse<T> = {
+      statusCode: number;
+      message?: string;
+      data?: T;
+      error?: string;
+    };
+
+    const response = await fetch(`http://localhost:3000/apis/users`, {
+      method: "POST",
+      body: JSON.stringify({
+        name: FormData.get("name"),
+        username: FormData.get("username"),
+        email: FormData.get("email"),
+        password: FormData.get("password"),
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const responseJson: MyResponse<unknown> = await response.json();
+    if (!response.ok) {
+      console.log(responseJson.error, "<<<<<<<<");
+
+      let message =
+        responseJson.error ?? "Something Wrong, Please Check Again Your Input";
+      return redirect(`register?error=${message}`);
+    }
+    return redirect(`/login`);
+  };
+  return (
+    <>
+      <div className="min-h-screen bg-gray-600 text-gray-900 flex justify-center -mt-[8rem]">
         <div className="max-w-screen-xl m-0 sm:m-36 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-6/12 p-6 sm:p-10">
             <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">
@@ -22,58 +56,53 @@ const RegisterPage = ()=>{
             </div>
             <div className="mt-12 flex flex-col items-center">
               <div className="mx-auto max-w-xs">
-                {/* <form onSubmit={onSubmitLogin}> */}
-                <input
-                  className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="name"
-                  placeholder="Name"
-                  name="name"
-                  // value={inputLogin.password}
-                  // onChange={onChange}
-                />
-                <input
-                  className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="username"
-                  placeholder="Username"
-                  name="username"
-                  // value={inputLogin.password}
-                  // onChange={onChange}
-                />
-                <input
-                  className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  // value={inputLogin.password}
-                  // onChange={onChange}
-                />
-                <input
-                  className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  // value={inputLogin.password}
-                  // onChange={onChange}
-                />
-                <button
-                  className="mt-5 tracking-wide font-semibold bg-gray-400 text-gray-100 w-full py-3 rounded-lg hover:bg-black transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                  type="submit"
-                >
-                  <svg
-                    className="w-6 h-6 -ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+                <div className="mb-[1rem]">
+                  <ClientFlashComponent />
+                </div>
+                <form action={actionForm}>
+                  <input
+                    className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="name"
+                    placeholder="Name"
+                    name="name"
+                  />
+                  <input
+                    className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="username"
+                    placeholder="Username"
+                    name="username"
+                  />
+                  <input
+                    className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="email"
+                    placeholder="Email"
+                    name="email"
+                  />
+                  <input
+                    className="w-full h-[1rem] px-4 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="password"
+                    placeholder="Password"
+                    name="password"
+                  />
+                  <button
+                    className="mt-5 tracking-wide font-semibold bg-gray-400 text-gray-100 w-full py-3 rounded-lg hover:bg-black transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                    type="submit"
                   >
-                    <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                    <circle cx="8.5" cy="7" r="4" />
-                    <path d="M20 8v6M23 11h-6" />
-                  </svg>
-                  <span className="ml-3">Sign-Up</span>
-                </button>
-                <form />
+                    <svg
+                      className="w-6 h-6 -ml-2"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                      <circle cx="8.5" cy="7" r="4" />
+                      <path d="M20 8v6M23 11h-6" />
+                    </svg>
+                    <span className="ml-3">Sign-Up</span>
+                  </button>
+                </form>
               </div>
               <div className="my-2 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2 border-l-2 border-r-2 border-gray-300">
@@ -88,12 +117,10 @@ const RegisterPage = ()=>{
                 {/* Email and Password Input */}
                 {/* Sign Up Button */}
                 <div className="flex flex-row gap-x-1 mt-6 text-xs text-gray-600 text-center justify-center ">
-                <p>
-                  {`Already have an account?`}
-                </p>
-                <Link href={"/login"}>
-                <span className="underline"> Log-In</span>
-                </Link>
+                  <p>{`Already have an account?`}</p>
+                  <Link href={"/login"}>
+                    <span className="underline"> Log-In</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -138,9 +165,8 @@ const RegisterPage = ()=>{
           </div>
         </div>
       </div>
+    </>
+  );
+};
 
-        </>
-    )
-}
-
-export default RegisterPage
+export default RegisterPage;
