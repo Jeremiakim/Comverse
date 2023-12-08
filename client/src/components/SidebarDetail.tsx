@@ -2,19 +2,24 @@
 import Image from "next/image";
 import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { ProductModel } from "@/db/models/product";
 
-const SidebarDetail = ({ products }) => {
+type Props = {
+  product: ProductModel;
+};
+
+const SidebarDetail = ({ product }: Props) => {
   return (
     <aside className="sticky w-[24rem] h-full bg-white border-2 border-white dark:bg-zinc-800/30 top-10">
       <ul className="my-3">
         <li className="flex w-full px-8 py-2 text-black font-semibold text-xl mt-6">
-          {products.name}
+          {product.name}
         </li>
         <li className="flex w-full px-8 py-2 my-[1rem] text-black text-sm">
-          Rp.{products.price}
+          Rp.{product.price}
         </li>
         <li className="flex w-full px-8 py-2 text-black text-sm mb-[1rem]">
-          {products.description}
+          {product.description}
         </li>
         <div className="border-b-2 border-gray-400 mx-2"></div>
         <li className="flex w-full px-8 py-2 text-black text-sm mt-2">Color</li>

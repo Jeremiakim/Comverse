@@ -27,8 +27,6 @@ export const getUsers = async () => {
   const users = (await db
     .collection(COLLECTION_USER)
     .find({})
-    // Exclude kolom password
-    // (For the sake of security...)
     .project({ password: 0 })
     .toArray()) as UserModel[];
 
@@ -40,14 +38,14 @@ export const createUser = async (user: UserModelCreateInput) => {
   const findUser = await db.collection(COLLECTION_USER).findOne({
     $or: [{ username: user.username }, { email: user.email }],
   });
-  // if (findUser) {
-  //   if (user.username === findUser.username) {
-  //     throw new Error("Username Is Already Exists");
-  //   }
-  //   if (user.email === findUser.email) {
-  //     throw new Error("Email Is Already Exists");
-  //   }
-  // }
+  if (findUser) {
+    if (user.username === findUser.username) {
+      throw new Error("Username Is Already Exists");
+    }
+    if (user.email === findUser.email) {
+      throw new Error("Email Is Already Exists");
+    }
+  }
   const modifiedUser: UserModelCreateInput = {
     ...user,
     password: hashText(user.password),

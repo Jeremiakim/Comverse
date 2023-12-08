@@ -3,19 +3,24 @@ import Navbar from "@/components/NavbarComponents";
 import SidebarDetail from "@/components/SidebarDetail";
 import Image from "next/image";
 import { ProductModel } from "@/db/models/product";
+import { MyResponse } from "@/app/apis/products/[slug]/route";
 
 const fecthProductBySlug = async (slug: string) => {
-  "use server";
   const response = await fetch(`http://localhost:3000/apis/products/${slug}`);
 
-  const data: ProductModel = await response.json();
-  return data;
+  const data: MyResponse<ProductModel> = await response.json();
+  const datas = data.data;
+
+  if (datas === undefined) {
+    throw new Error("");
+  }
+
+  return datas;
 };
 
 const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
   const slug = params.slug;
   const product = await fecthProductBySlug(slug);
-  const products = product.data;
 
   return (
     <>
@@ -23,20 +28,15 @@ const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
         <Navbar />
       </div>
       <div className="flex flex-row justify-end">
-        {/* <pre>{JSON.stringify(products, null, 2)}</pre> */}
+        {/* <pre>{JSON.stringify(product, null, 2)}</pre> */}
         <div className="flex flex-col">
           <div>
-            <Image
-              width={3000}
-              height={40}
-              src={products.thumbnail}
-              alt="..."
-            />
+            <Image width={3000} height={40} src={product.thumbnail} alt="..." />
           </div>
           <div className="flex flex-row">
-            {products.images.map((image) => {
+            {product?.images.map((image) => {
               return (
-                <div key={products._id}>
+                <div key={product?._id?.toString()}>
                   <Image width={3000} height={40} src={image} alt="..." />
                 </div>
               );
@@ -45,7 +45,7 @@ const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
         </div>
         <div>
           <div className="sticky mt-[4rem] top-10">
-            <SidebarDetail products={products} />
+            <SidebarDetail product={product} />
           </div>
         </div>
       </div>

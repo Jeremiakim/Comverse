@@ -1,4 +1,3 @@
-"use server";
 import { Card } from "flowbite-react";
 import Image from "next/image";
 import Navbar from "../components/NavbarComponents";
@@ -7,16 +6,16 @@ import Link from "next/link";
 import InfoComponents from "../components/InfoComponents";
 import { FaArrowRight } from "react-icons/fa6";
 import { ProductModel } from "@/db/models/product";
+import { MyResponse } from "./apis/products/route";
+// import { MyResponseProductsGet } from "./apis/products/route";
 
 const fetchProducts = async () => {
   const response = await fetch("http://localhost:3000/apis/products");
-  const data: ProductModel[] = await response.json();
-  // console.log(data.data);
+  const data: MyResponse<ProductModel[]> = await response.json();
 
-  const limitedProducts = data.data.slice(0, 8); // Ambil 10 produk pertama dari data
+  const limitedProducts = data.data.slice(0, 8);
 
   return limitedProducts;
-  // return data;
 };
 
 const Home = async () => {
@@ -102,11 +101,9 @@ const Home = async () => {
                 imgAlt=""
                 imgSrc="/chuck-l.jpg"
               >
-                <a href="#">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    LOW TOP
-                  </h5>
-                </a>
+                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  LOW TOP
+                </h5>
               </Card>
             </Link>
             <Link href={"/products"}>
@@ -115,11 +112,9 @@ const Home = async () => {
                 imgAlt=""
                 imgSrc="/chuck-h.jpg"
               >
-                <a href="#">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    HIGH TOP
-                  </h5>
-                </a>
+                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  HIGH TOP
+                </h5>
               </Card>
             </Link>
             <Link href={"/products"}>
@@ -128,11 +123,9 @@ const Home = async () => {
                 imgAlt=""
                 imgSrc="/chuck-p.jpg"
               >
-                <a href="#">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    COMFORT
-                  </h5>
-                </a>
+                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  COMFORT
+                </h5>
               </Card>
             </Link>
             <Link href={"/products"}>
@@ -141,11 +134,9 @@ const Home = async () => {
                 imgAlt=""
                 imgSrc="/comverse-p.jpg"
               >
-                <a href="#">
-                  <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    PLATFORM
-                  </h5>
-                </a>
+                <h5 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  PLATFORM
+                </h5>
               </Card>
             </Link>
           </div>
@@ -155,7 +146,10 @@ const Home = async () => {
           <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
             {products.map((product) => {
               return (
-                <Link href={`/products/${product.slug}`} key={product._id}>
+                <Link
+                  href={`/products/${product.slug}`}
+                  key={product._id.toString()}
+                >
                   <Card
                     className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[30rem]"
                     imgAlt="Converse Belmont Vintage Athletic"

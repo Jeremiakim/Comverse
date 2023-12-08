@@ -3,7 +3,7 @@ import { Db, ObjectId } from "mongodb";
 
 export type ProductModel = {
   _id: ObjectId;
-  nama: string;
+  name: string;
   slug: string;
   description: string;
   excerpt: string;

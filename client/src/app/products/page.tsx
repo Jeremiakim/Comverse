@@ -7,6 +7,7 @@ import { Card } from "flowbite-react";
 import { ProductModel } from "@/db/models/product";
 import { FaHeart } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { MyResponse } from "../apis/products/route";
 
 const ProductsPage = () => {
   const [products, setProducts] = useState<ProductModel[]>([]);
@@ -14,7 +15,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const response = await fetch("http://localhost:3000/apis/products");
-      const data: ProductModel[] = await response.json();
+      const data: MyResponse<ProductModel[]> = await response.json();
 
       setProducts(data.data);
 
@@ -51,7 +52,10 @@ const ProductsPage = () => {
             <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
               {products.map((product) => {
                 return (
-                  <Link href={`/products/${product.slug}`} key={product._id}>
+                  <Link
+                    href={`/products/${product.slug}`}
+                    key={product._id.toString()}
+                  >
                     <Card
                       className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer relative h-[22rem]"
                       imgAlt="Converse Belmont Vintage Athletic"
