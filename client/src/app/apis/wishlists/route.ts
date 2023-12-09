@@ -25,25 +25,32 @@ export const GET = async () => {
     }
   );
 };
-// export const POST = async (req: NextRequest) => {
-//   try {
-//     const data = await req.json();
-//     console.log(data);
-//     const parsedData = userInput.safeParse(data);
-//     if (!parsedData.success) {
-//       throw parsedData.error;
-//     }
-//     await createUser(parsedData.data);
+export const POST = async (req: NextRequest) => {
+  try {
+    console.log("ini masuk");
+    // console.log(req.headers);
+    const data = await req.json();
+    const productId = data.productId;
 
-//     return NextResponse.json<MyResponse<unknown>>(
-//       {
-//         statusCode: 200,
-//         message: "Pong from GET /api/wishlist !",
-//         // data:,
-//       },
-//       {
-//         status: 200,
-//       }
-//     );
-//   } catch (error) {}
-// };
+    const userId = req.headers.get("x-user-id");
+    if (!userId) {
+      throw new Error("Unauthorized");
+    }
+
+    // const data = await req.json();
+    // console.log(data);
+    const createdWL = await createWishList(userId, productId);
+    return NextResponse.json<MyResponse<unknown>>(
+      {
+        statusCode: 200,
+        message: "Pong from GET /api/wishlist !",
+        data: createdWL,
+      },
+      {
+        status: 200,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};

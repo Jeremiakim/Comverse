@@ -1,14 +1,13 @@
 import { getMongoClientInstance } from "../configs";
 import { Db, ObjectId } from "mongodb";
-import { getUsers } from "./user";
-import { getProducts } from "./product";
 
 export type WishlistModel = {
   _id: ObjectId;
-  userId: string;
-  productId: string;
+  userId: ObjectId;
+  productId: ObjectId;
   createdAt: string;
   updatedAt: string;
+  productDetail: string;
 };
 
 export type WishlistCreateInput = Omit<WishlistModel, "_id">;
@@ -32,22 +31,28 @@ export const getWishlist = async () => {
   return Wishlist;
 };
 
-// export const createWishList = async (wishlist: WishlistCreateInput) => {
-//   const db = await getDb();
-//   const user = await getUsers();
-//   const product = await getProducts();
+export const createWishList = async (
+  userId: ObjectId,
+  productId: ObjectId,
+  wishlist: WishlistCreateInput
+) => {
+  const db = await getDb();
 
-//   const modifiedwishlist: WishlistCreateInput = {
-//     ...wishlist,
-//     userId: user._id.toString(),
-//     productId: product._id.toString(),
-//     createdAt: `${new Date()}`,
-//     updatedAt: `${new Date()}`,
-//   };
+  const inputAuto = {
+    ...wishlist,
+    userId: new ObjectId(userId),
+    productId: new ObjectId(productId),
+  };
 
-//   const result = await db
-//     .collection(COLLECTION_WISHLIST)
-//     .insertOne(modifiedwishlist);
+  const modifiedwishlist: WishlistCreateInput = {
+    ...inputAuto,
+    createdAt: `${new Date().toISOString()}`,
+    updatedAt: `${new Date().toISOString()}`,
+  };
 
-//   return result;
-// };
+  const result = await db
+    .collection(COLLECTION_WISHLIST)
+    .insertOne(modifiedwishlist);
+
+  return result;
+};

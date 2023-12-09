@@ -12,7 +12,7 @@ const fecthProductBySlug = async (slug: string) => {
   const datas = data.data;
 
   if (datas === undefined) {
-    throw new Error("");
+    throw new Error("Data Is undefined");
   }
 
   return datas;

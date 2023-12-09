@@ -12,12 +12,11 @@ export const middleware = async (req: NextRequest) => {
     console.log(req.method, req.url);
   }
 
-  if (req.url.includes("/apis")) {
+  if (req.url.includes("/apis/wishlists")) {
     console.log("apis", req.url, "hello baru nii");
     const cookiesStore = cookies();
 
     const token = cookiesStore.get("token");
-    console.log(token);
 
     if (!token) {
       return NextResponse.json({
@@ -25,3 +24,18 @@ export const middleware = async (req: NextRequest) => {
         error: "Unauthorized",
       });
     }
+
+    const tokenData = await readPayloadJose<{ id: string; email: string }>(
+      token.value
+    );
+
+    const requestHeaders = new Headers(req.headers);
+    requestHeaders.set("x-user-id", tokenData.id);
+    requestHeaders.set("x-user-email", tokenData.email);
+
+    return NextResponse.next({
+      headers: requestHeaders,
+    });
+  }
+  return NextResponse.next();
+};

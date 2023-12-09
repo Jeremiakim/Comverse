@@ -21,8 +21,6 @@ const ProductsPage = () => {
     };
     fetchProducts();
   }, []);
-  console.log(products);
-
   return (
     <>
       <div>
@@ -68,11 +66,11 @@ const ProductsPage = () => {
                         </span>
                       </div>
                       <div className="absolute top-2 right-2 ">
-                        <Link href={"/wishlist"}>
-                          <button className=" text-white hover:text-red-500 dark:focus:ring-cyan-900 transition delay-150 duration-500">
-                            <FaHeart size={25} />
-                          </button>
-                        </Link>
+                        {/* <Link href={"/wishlist"}> */}
+                        <button className=" text-white hover:text-red-500 dark:focus:ring-cyan-900 transition delay-150 duration-500">
+                          <FaHeart size={25} />
+                        </button>
+                        {/* </Link> */}
                       </div>
                     </Card>
                   </Link>
