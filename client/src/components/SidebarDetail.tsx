@@ -6,13 +6,14 @@ import { ProductModel } from "@/db/models/product";
 import { useState } from "react";
 import { MyResponse } from "@/app/apis/wishlists/route";
 import { WishlistModel } from "@/db/models/wishlist";
+import ButtonAddWishLists from "./ButtonRemoveWishLists";
+import { FaHeart } from "react-icons/fa";
 
 type Props = {
   product: ProductModel;
 };
 
 const SidebarDetail = ({ product }: Props) => {
-  const [wishList, setWishList] = useState();
   const fecthAddWishlist = async () => {
     const response = await fetch("http://localhost:3000/apis/wishlists", {
       method: "POST",
@@ -21,14 +22,12 @@ const SidebarDetail = ({ product }: Props) => {
       },
       body: JSON.stringify({ productId: product._id }),
     });
-    const data: MyResponse<WishlistModel> = await response.json();
-    setWishList(data.data);
+    const data: MyResponse<WishlistModel<ProductModel>> = await response.json();
   };
 
   return (
     <aside className="sticky w-[24rem] h-full bg-white border-2 border-white dark:bg-zinc-800/30 top-10">
       <ul className="my-3">
-        <pre>{JSON.stringify(wishList, null, 2)}</pre>
         <li className="flex w-full px-8 py-2 text-black font-semibold text-xl mt-6">
           {product.name}
         </li>
@@ -130,8 +129,11 @@ const SidebarDetail = ({ product }: Props) => {
               href={"/wishlist"}
               className="flex font-medium items-center justify-center px-1 py-1 relative text-3xl text-black hover:text-red-700 bg-slate-500 rounded-lg hover:bg-zinc-100 transition delay-150 duration-500"
             > */}
-            <IoIosHeartEmpty onClick={fecthAddWishlist} />
+            <div className="flex font-medium items-center justify-center px-1 py-1 relative text-3xl text-black hover:text-red-700 bg-slate-500 rounded-lg hover:bg-zinc-100 transition delay-150 duration-500">
+              <FaHeart onClick={fecthAddWishlist} />
+            </div>
             {/* </Link> */}
+            {/* <ButtonAddWishLists /> */}
           </li>
         </div>
       </ul>

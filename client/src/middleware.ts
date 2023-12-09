@@ -13,7 +13,6 @@ export const middleware = async (req: NextRequest) => {
   }
 
   if (req.url.includes("/apis/wishlists")) {
-    console.log("apis", req.url, "hello baru nii");
     const cookiesStore = cookies();
 
     const token = cookiesStore.get("token");
