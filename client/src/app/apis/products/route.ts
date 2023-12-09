@@ -1,5 +1,5 @@
 import { ProductModel, getProducts } from "@/db/models/product";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export type MyResponse<T> = {
   statusCode: number;
@@ -7,8 +7,17 @@ export type MyResponse<T> = {
   data: T;
 };
 
-export const GET = async () => {
-  const products = await getProducts();
+export const GET = async (req: NextRequest) => {
+  const url = new URL(req.url);
+
+  // console.log(url);
+
+  const page = parseInt(url.searchParams.get("page") || "1");
+
+  const pageSize = parseInt(url.searchParams.get("pageSize") || "10");
+  const search = url.searchParams.get("search") || "";
+
+  const products = await getProducts(page, pageSize, search);
 
   return NextResponse.json<MyResponse<ProductModel[]>>(
     {

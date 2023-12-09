@@ -42,10 +42,13 @@ const Home = async () => {
                         countless imitators, with its star-centered patch,
                         rubber toe cap, toe bumper and striping.
                       </p>
-                      <button className="bg-[#e4ffff] mt-7 py-4 px-11 rounded-xl hover:bg-[#00a2e0] text-[#00619a] font-bold hover:text-[#e4ffff] transition delay-100 duration-700">
+                      <Link
+                        href={"/products"}
+                        className="bg-[#e4ffff] mt-7 py-4 px-11 rounded-xl hover:bg-[#00a2e0] text-[#00619a] font-bold hover:text-[#e4ffff] transition delay-100 duration-700"
+                      >
                         {/* <p className="text-[#00619a] font-bold hover:text-[#e4ffff]">Shop Now</p> */}
                         Shop now
-                      </button>
+                      </Link>
                     </div>
                   </div>
                   {/* <div className="border-r-2 border-gray-300"></div> */}

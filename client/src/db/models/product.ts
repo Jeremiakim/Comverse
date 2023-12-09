@@ -27,12 +27,25 @@ export const getDb = async () => {
   return db;
 };
 
-export const getProducts = async () => {
+export const getProducts = async (
+  page: number,
+  pageSize: number,
+  search: string
+) => {
   const db = await getDb();
+  const skip = (page - 1) * pageSize;
+
+  let query = {};
+
+  if (search) {
+    query = { $text: { $search: search } };
+  }
 
   const products = (await db
     .collection(COLLECTION_PRODUCT)
-    .find()
+    .find(query)
+    .skip(skip)
+    .limit(pageSize)
     .toArray()) as ProductModel[];
 
   return products;
@@ -40,8 +53,6 @@ export const getProducts = async () => {
 
 export const getProductBySlug = async (slug: string) => {
   const db = await getDb();
-  // const objectId = new ObjectId(id);
-  console.log(slug);
 
   const user = (await db
     .collection(COLLECTION_PRODUCT)
