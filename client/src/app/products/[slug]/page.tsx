@@ -34,9 +34,9 @@ const DetailProductPage = async ({ params }: { params: { slug: string } }) => {
             <Image width={3000} height={40} src={product.thumbnail} alt="..." />
           </div>
           <div className="flex flex-row">
-            {product?.images.map((image) => {
+            {product?.images.map((image, idx) => {
               return (
-                <div key={product?._id?.toString()}>
+                <div key={idx}>
                   <Image width={3000} height={40} src={image} alt="..." />
                 </div>
               );

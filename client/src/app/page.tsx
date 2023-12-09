@@ -144,12 +144,9 @@ const Home = async () => {
             <Image width={5000} height={300} src="/banner-red.jpg" alt="..." />
           </div>
           <div className="grid grid-cols-4 mx-7 mt-[2rem] gap-3 ">
-            {products.map((product) => {
+            {products.map((product, idx) => {
               return (
-                <Link
-                  href={`/products/${product.slug}`}
-                  key={product._id.toString()}
-                >
+                <Link href={`/products/${product.slug}`} key={idx}>
                   <Card
                     className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[30rem]"
                     imgAlt="Converse Belmont Vintage Athletic"

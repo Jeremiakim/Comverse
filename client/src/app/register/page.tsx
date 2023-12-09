@@ -6,6 +6,7 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import ClientFlashComponent from "@/components/ClientFlashComponent";
+import Navbar from "@/components/NavbarComponents";
 
 const RegisterPage = () => {
   const actionForm = async (FormData: FormData) => {
@@ -44,7 +45,8 @@ const RegisterPage = () => {
   };
   return (
     <>
-      <div className="min-h-screen bg-gray-600 text-gray-900 flex justify-center -mt-[8rem]">
+      <Navbar />
+      <div className="min-h-screen bg-gray-600 text-gray-900 flex justify-center -mt-[4rem]">
         <div className="max-w-screen-xl m-0 sm:m-36 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-6/12 p-6 sm:p-10">
             <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 flex-row gap-2">

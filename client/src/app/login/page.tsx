@@ -2,11 +2,13 @@ import Link from "next/link";
 import { GiConverseShoe } from "react-icons/gi";
 import { login } from "./action";
 import ClientFlashComponent from "@/components/ClientFlashComponent";
+import Navbar from "@/components/NavbarComponents";
 
 const LoginPage = () => {
   return (
     <>
-      <div className="min-h-screen bg-gray-300 text-gray-900 flex justify-center -mt-[25rem]">
+      <Navbar />
+      <div className="min-h-screen bg-gray-300 text-gray-900 flex justify-center -mt-[23rem]">
         <div className="max-w-screen-xl m-0 sm:m-[28rem] bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="lg:w-1/2 xl:w-11/12 p-10 sm:p-12">
             <div className="flex text-base font-black font-serif items-center justify-center px-1 py-1 ">

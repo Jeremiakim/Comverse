@@ -1,10 +1,10 @@
+import { ProductModel } from "@/db/models/product";
 import {
   WishlistModel,
   createWishList,
   deleteWishlists,
   getWishlist,
 } from "@/db/models/wishlist";
-import { get } from "http";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -16,10 +16,13 @@ export type MyResponse<T> = {
 
 export const GET = async (req: NextRequest) => {
   const userId = req.headers.get("x-user-id");
+  if (!userId) {
+    throw new Error("Unauthorized");
+  }
 
-  const wishlist = await getWishlist(userId);
+  const wishlist = await getWishlist(new ObjectId(userId));
 
-  return NextResponse.json<MyResponse<WishlistModel[]>>(
+  return NextResponse.json<MyResponse<WishlistModel<ProductModel>[]>>(
     {
       statusCode: 200,
       message: "Pong from GET /api/wishlist !",

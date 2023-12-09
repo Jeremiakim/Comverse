@@ -19,7 +19,6 @@ const COLLECTION_WISHLIST = "Wishlists";
 export const getDb = async () => {
   const client = await getMongoClientInstance();
   const db: Db = client.db(DATABASE_NAME);
-
   return db;
 };
 
@@ -48,36 +47,19 @@ export const getWishlist = async (userId: ObjectId) => {
   return Wishlist;
 };
 
-export const createWishList = async (
-  userId: ObjectId,
-  productId: ObjectId,
-  wishlist: WishlistCreateInput
-) => {
+export const createWishList = async (userId: string, productId: ObjectId) => {
   const db = await getDb();
-
-  const inputAuto = {
-    ...wishlist,
+  const result = await db.collection(COLLECTION_WISHLIST).insertOne({
     userId: new ObjectId(userId),
     productId: new ObjectId(productId),
-  };
-
-  const modifiedwishlist: WishlistCreateInput = {
-    ...inputAuto,
     createdAt: `${new Date().toISOString()}`,
     updatedAt: `${new Date().toISOString()}`,
-  };
-
-  const result = await db
-    .collection(COLLECTION_WISHLIST)
-    .insertOne(modifiedwishlist);
+  });
 
   return result;
 };
 
-export const deleteWishlists = async (
-  userid: ObjectId,
-  productId: ObjectId
-) => {
+export const deleteWishlists = async (userid: string, productId: ObjectId) => {
   const db = await getDb();
   const result = await db.collection(COLLECTION_WISHLIST).deleteOne({
     productId: new ObjectId(productId),
