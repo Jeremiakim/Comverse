@@ -16,7 +16,6 @@ const WishlistPage = () => {
     const response = await fetch("http://localhost:3000/apis/wishlists");
     const data: MyResponse<WishlistModel<ProductModel>[]> =
       await response.json();
-
     if (data && data.data) setWishList(data.data);
   };
   useEffect(() => {

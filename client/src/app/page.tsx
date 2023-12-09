@@ -61,24 +61,7 @@ const Home = async () => {
                 </div>
               </div>
               <Image width={1000} height={300} src="/banner-2.jpg" alt="..." />
-              <Image
-                width={100}
-                height={300}
-                src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                alt="..."
-              />
-              <Image
-                width={100}
-                height={300}
-                src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                alt="..."
-              />
-              <Image
-                width={100}
-                height={300}
-                src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-                alt="..."
-              />
+              <Image width={1000} height={300} src="/hellos.gif" alt="..." />
             </Carousel>
           </div>
         </div>

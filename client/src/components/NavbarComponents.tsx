@@ -1,10 +1,17 @@
+// import { redirect } from "next/navigation";
+// import { cookies } from "next/headers";
+import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { GiConverseShoe } from "react-icons/gi";
 import { CiShoppingCart } from "react-icons/ci";
-import Link from "next/link";
+import ButtonLogout from "./ButtonLogout";
 
 const Navbar = () => {
+  // const cookiesStore = cookies();
+  // const token = cookiesStore.get("token");
+
+  // const exist = token?.value;
   return (
     <>
       <div className="w-screen top-0 z-50 flex justify-between bg-[white] text-neutral-content shadow-md py-1 position: fixed">
@@ -76,6 +83,22 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* <ButtonLogout /> */}
+          {/* {exist && ( */}
+          <form
+          // action={async () => {
+          //   "use server";
+
+          //   cookies().get("token") && cookies().delete("token");
+
+          //   redirect("/");
+          // }}
+          >
+            <button className="hover:text-[#e1eae5] mr-[2rem] mt-[1rem]">
+              Logout
+            </button>
+          </form>
+          {/* )} */}
         </div>
       </div>
     </>
