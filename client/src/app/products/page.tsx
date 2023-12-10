@@ -7,7 +7,7 @@ import { Card } from "flowbite-react";
 import { ProductModel } from "@/db/models/product";
 import { FaHeart } from "react-icons/fa";
 import { MyResponse } from "../apis/products/route";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const url = process.env.NEXT_PUBLIC_URL;
@@ -17,11 +17,7 @@ const ProductsPage = () => {
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [page, setPage] = useState<number>(1);
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
-
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       const response = await fetch(`${url}apis/products?page=${page}`);
       if (response.ok) {
@@ -35,7 +31,11 @@ const ProductsPage = () => {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
-  };
+  }, [page]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, [fetchProducts]);
 
   const itemsPerPage = 4;
 
