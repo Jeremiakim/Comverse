@@ -1,5 +1,6 @@
 import { ObjectId } from "mongodb";
 import React from "react";
+const url = process.env.NEXT_PUBLIC_URL;
 
 type RemoveWishlist = {
   wishListId: ObjectId;
@@ -9,7 +10,7 @@ type RemoveWishlist = {
 const ButtonRemoveWishLists = ({ wishListId, fetchData }: RemoveWishlist) => {
   const handleDelete = async () => {
     try {
-      await fetch(`http://localhost:3000/apis/wishlists/`, {
+      await fetch(`${url}apis/wishlists/`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

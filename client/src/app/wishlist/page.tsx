@@ -9,11 +9,12 @@ import { useEffect, useState } from "react";
 import { MyResponse } from "../apis/wishlists/route";
 import { ProductModel } from "@/db/models/product";
 import ButtonRemoveWishLists from "@/components/ButtonRemoveWishLists";
+const url = process.env.NEXT_PUBLIC_URL;
 
 const WishlistPage = () => {
   const [wishList, setWishList] = useState<WishlistModel<ProductModel>[]>([]);
   const fecthWishlist = async () => {
-    const response = await fetch("http://localhost:3000/apis/wishlists");
+    const response = await fetch(`${url}apis/wishlists`);
     const data: MyResponse<WishlistModel<ProductModel>[]> =
       await response.json();
     if (data && data.data) setWishList(data.data);

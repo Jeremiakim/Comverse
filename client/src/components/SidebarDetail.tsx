@@ -4,6 +4,7 @@ import { ProductModel } from "@/db/models/product";
 import { MyResponse } from "@/app/apis/wishlists/route";
 import { WishlistModel } from "@/db/models/wishlist";
 import { FaHeart } from "react-icons/fa";
+const url = process.env.NEXT_PUBLIC_URL;
 
 type Props = {
   product: ProductModel;
@@ -11,7 +12,7 @@ type Props = {
 
 const SidebarDetail = ({ product }: Props) => {
   const fecthAddWishlist = async () => {
-    const response = await fetch("http://localhost:3000/apis/wishlists", {
+    const response = await fetch(`${url}apis/wishlists`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

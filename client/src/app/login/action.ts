@@ -5,6 +5,7 @@ import { createToken } from "@/lib/jwt";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { cookies } from "next/headers";
+const url = process.env.NEXT_PUBLIC_URL;
 
 export const login = async (formData: FormData) => {
   const loginInput = z.object({
@@ -23,13 +24,11 @@ export const login = async (formData: FormData) => {
     const errMessage = parsedData.error.issues[0].message;
     const errFinalMessage = `${errPath} - ${errMessage}`;
 
-    return redirect(`http://localhost:3000/login?error=${errFinalMessage}`);
+    return redirect(`${url}login?error=${errFinalMessage}`);
   }
   const user = await getUserByEmail(parsedData.data.email);
   if (!user || !compareText(parsedData.data.password, user.password)) {
-    return redirect(
-      `http://localhost:3000/login?error=Invalid%20Email%20Or%20Password`
-    );
+    return redirect(`${url}login?error=Invalid%20Email%20Or%20Password`);
   }
   const payload = {
     id: user._id,
@@ -43,5 +42,5 @@ export const login = async (formData: FormData) => {
     expires: new Date(Date.now() + 1000 * 60 * 60),
     sameSite: "strict",
   });
-  return redirect("http://localhost:3000/");
+  return redirect(`${url}`);
 };

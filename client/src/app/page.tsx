@@ -8,9 +8,10 @@ import { FaArrowRight } from "react-icons/fa6";
 import { ProductModel } from "@/db/models/product";
 import { MyResponse } from "./apis/products/route";
 // import { MyResponseProductsGet } from "./apis/products/route";
+const url = process.env.NEXT_PUBLIC_URL;
 
 const fetchProducts = async () => {
-  const response = await fetch("http://localhost:3000/apis/products");
+  const response = await fetch(`${url}apis/products`);
   const data: MyResponse<ProductModel[]> = await response.json();
 
   const limitedProducts = data.data.slice(0, 8);

@@ -4,9 +4,10 @@ import SidebarDetail from "@/components/SidebarDetail";
 import Image from "next/image";
 import { ProductModel } from "@/db/models/product";
 import { MyResponse } from "@/app/apis/products/[slug]/route";
+const url = process.env.NEXT_PUBLIC_URL;
 
 const fecthProductBySlug = async (slug: string) => {
-  const response = await fetch(`http://localhost:3000/apis/products/${slug}`);
+  const response = await fetch(`${url}apis/products/${slug}`);
 
   const data: MyResponse<ProductModel> = await response.json();
   const datas = data.data;

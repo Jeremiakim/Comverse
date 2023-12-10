@@ -10,6 +10,8 @@ import { MyResponse } from "../apis/products/route";
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
+const url = process.env.NEXT_PUBLIC_URL;
+
 const ProductsPage = () => {
   const [products, setProducts] = useState<ProductModel[]>([]);
   const [hasMore, setHasMore] = useState<boolean>(true);
@@ -21,9 +23,7 @@ const ProductsPage = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/apis/products?page=${page}`
-      );
+      const response = await fetch(`${url}apis/products?page=${page}`);
       if (response.ok) {
         const data = await response.json();
         setProducts((prevProducts) => [...prevProducts, ...data.data]);

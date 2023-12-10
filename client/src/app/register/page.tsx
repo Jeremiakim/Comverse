@@ -7,6 +7,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 import ClientFlashComponent from "@/components/ClientFlashComponent";
 import Navbar from "@/components/NavbarComponents";
+const url = process.env.NEXT_PUBLIC_URL;
 
 const RegisterPage = () => {
   const actionForm = async (FormData: FormData) => {
@@ -20,7 +21,7 @@ const RegisterPage = () => {
     };
 
     const response = await fetch(
-      `http://localhost:3000/apis/users`,
+      `${url}apis/users`,
 
       {
         method: "POST",
