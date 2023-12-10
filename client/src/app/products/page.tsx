@@ -39,13 +39,12 @@ const ProductsPage = () => {
 
   const itemsPerPage = 4;
 
-  const slicedProducts = products.slice(0, page * itemsPerPage);
+  const slicedProducts = products.slice(1, page * itemsPerPage);
   return (
     <>
       <div>
         <Navbar />
       </div>
-      {/* <pre>{JSON.stringify(products.data, null, 4)}</pre> */}
       <div className="flex flex-col bg-white mt-[5rem]">
         <div className="grid grid-cols-12 bg-white border mx-5">
           <div className="bg-white border col-span-3 py-[1rem] px-[1rem]">
