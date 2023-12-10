@@ -5,62 +5,44 @@ const SidebarWishlist = () => {
     <aside className="w-64 h-full bg-white border-2 border-gray-900 dark:bg-zinc-800/30 mx-5 mt-10">
       <ul className="my-3">
         <li>
-        <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
             My Wish List
-          </Link>
+          </button>
         </li>
         <li>
-        <Link
+          <Link
             className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
+            href="/products"
           >
-            Order
+            Order Products
           </Link>
         </li>
         <div className="border-b-2 border-gray-400 mx-4"></div>
         <li>
-          <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
             My Account
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
             Address
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
-        Account Information
-          </Link>
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
+            Account Information
+          </button>
         </li>
         <div className="border-b-2 border-gray-400 mx-4"></div>
         <li>
-          <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
             Social Account
-          </Link>
+          </button>
         </li>
         <li>
-          <Link
-            className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300"
-            href="/"
-          >
-           Newsletter Subscription
-          </Link>
+          <button className="flex w-full px-8 py-4 text-black hover:bg-zinc-200 transition-colors duration-300">
+            Newsletter Subscription
+          </button>
         </li>
       </ul>
     </aside>
@@ -68,7 +50,3 @@ const SidebarWishlist = () => {
 };
 
 export default SidebarWishlist;
-
-
-
-
