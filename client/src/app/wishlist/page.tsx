@@ -25,7 +25,7 @@ const WishlistPage = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="flex flex-row gap-[3rem] mt-[4rem]">
         <div>
           <div>

@@ -1,5 +1,5 @@
-// import { redirect } from "next/navigation";
-// import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlinePersonOutline } from "react-icons/md";
@@ -86,13 +86,13 @@ const Navbar = () => {
           {/* <ButtonLogout /> */}
           {/* {exist && ( */}
           <form
-          // action={async () => {
-          //   "use server";
+            action={async () => {
+              "use server";
 
-          //   cookies().get("token") && cookies().delete("token");
+              cookies().get("token") && cookies().delete("token");
 
-          //   redirect("/");
-          // }}
+              redirect("/");
+            }}
           >
             <button className="hover:text-[#e1eae5] mr-[2rem] mt-[1rem]">
               Logout
