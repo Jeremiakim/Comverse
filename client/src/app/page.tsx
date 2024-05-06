@@ -55,8 +55,17 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <Image width={1000} height={300} src="/banner-2.jpg" alt="..." />
-              <Image width={1000} height={300} src="/hellos.gif" alt="..." />
+              <Link href={"/products"}>
+                <Image
+                  width={5000}
+                  height={5000}
+                  src="/banner-2.jpg"
+                  alt="..."
+                />
+              </Link>
+              <Link href={"/products"}>
+                <Image width={5000} height={5000} src="/hellos.gif" alt="..." />
+              </Link>
             </Carousel>
           </div>
         </div>
