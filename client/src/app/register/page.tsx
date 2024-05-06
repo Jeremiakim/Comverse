@@ -8,8 +8,15 @@ import { redirect } from "next/navigation";
 import ClientFlashComponent from "@/components/ClientFlashComponent";
 import Navbar from "@/components/NavbarComponents";
 const url = process.env.NEXT_PUBLIC_URL;
+import { cookies } from "next/headers";
 
 const RegisterPage = () => {
+  const cookiesStore = cookies();
+  const token = cookiesStore.get("token");
+
+  if (token) {
+    redirect("/");
+  }
   const actionForm = async (FormData: FormData) => {
     "use server";
 
@@ -130,7 +137,7 @@ const RegisterPage = () => {
               </div>
             </div>
           </div>
-          <div className="border-r-2 border-gray-400 my-[5rem]"></div>
+          <div className="border-b-2 border-gray-400 my-[5rem]"></div>
           <div className="flex-1 hidden lg:flex">
             <div className=" flex-3 my-20 mx-16">
               <h1 className="text-2xl xl:text-3xl font-extrabold mb-5">

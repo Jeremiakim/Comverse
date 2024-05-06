@@ -101,7 +101,7 @@ const WishlistPage = () => {
                     </span>
                   </div>
                   <div>
-                    <div className="flex flex-row gap-4">
+                    <div className="flex flex-row justify-between gap-4">
                       <div>
                         <Link
                           href="#"
@@ -110,15 +110,10 @@ const WishlistPage = () => {
                           Add to cart
                         </Link>
                       </div>
-                      <div className="flex gap-3">
-                        <button className="text-black hover:underline hover:text-gray-400">
-                          Edit
-                        </button>
-                        <ButtonRemoveWishLists
-                          wishListId={elementWL.productDetail._id}
-                          fetchData={fecthWishlist}
-                        />
-                      </div>
+                      <ButtonRemoveWishLists
+                        wishListId={elementWL.productDetail._id}
+                        fetchData={fecthWishlist}
+                      />
                     </div>
                   </div>
                 </Card>

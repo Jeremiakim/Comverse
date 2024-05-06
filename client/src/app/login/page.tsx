@@ -3,8 +3,17 @@ import { GiConverseShoe } from "react-icons/gi";
 import { login } from "./action";
 import ClientFlashComponent from "@/components/ClientFlashComponent";
 import Navbar from "@/components/NavbarComponents";
+import { redirect } from "next/navigation";
+import { cookies } from "next/headers";
 
 const LoginPage = () => {
+  const cookiesStore = cookies();
+  const token = cookiesStore.get("token");
+
+  // Jika token ada (pengguna sudah login), alihkan mereka ke halaman utama.
+  if (token) {
+    redirect("/");
+  }
   return (
     <>
       <Navbar />

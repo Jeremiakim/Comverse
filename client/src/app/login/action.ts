@@ -30,10 +30,13 @@ export const login = async (formData: FormData) => {
   if (!user || !compareText(parsedData.data.password, user.password)) {
     return redirect(`${url}login?error=Invalid%20Email%20Or%20Password`);
   }
+
   const payload = {
     id: user._id,
     email: user.email,
+    name: user.name,
   };
+
   const token = createToken(payload);
 
   cookies().set("token", token, {

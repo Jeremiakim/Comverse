@@ -24,13 +24,17 @@ export const middleware = async (req: NextRequest) => {
       });
     }
 
-    const tokenData = await readPayloadJose<{ id: string; email: string }>(
-      token.value
-    );
+    const tokenData = await readPayloadJose<{
+      id: string;
+      email: string;
+      name: string;
+    }>(token.value);
 
     const requestHeaders = new Headers(req.headers);
+
     requestHeaders.set("x-user-id", tokenData.id);
     requestHeaders.set("x-user-email", tokenData.email);
+    requestHeaders.set("x-user-name", tokenData.name);
 
     return NextResponse.next({
       headers: requestHeaders,

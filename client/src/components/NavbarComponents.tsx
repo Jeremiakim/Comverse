@@ -3,15 +3,24 @@ import { cookies } from "next/headers";
 import Link from "next/link";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlinePersonOutline } from "react-icons/md";
+import { IoMdPerson } from "react-icons/io";
 import { GiConverseShoe } from "react-icons/gi";
 import { CiShoppingCart } from "react-icons/ci";
 import ButtonLogout from "./ButtonLogout";
+import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
-  // const cookiesStore = cookies();
-  // const token = cookiesStore.get("token");
+  const cookiesStore = cookies();
 
-  // const exist = token?.value;
+  const token = cookiesStore.get("token");
+
+  const exist: RequestCookie | undefined = token?.value;
+  let userData: JwtPayload | null = null;
+  if (exist) {
+    const decodedToken = jwtDecode(exist, {});
+    userData = decodedToken;
+  }
+
   return (
     <>
       <div className="w-screen top-0 z-50 flex justify-between bg-[white] text-neutral-content shadow-md py-1 position: fixed">
@@ -50,14 +59,26 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex flex-row gap-2 ">
-          <div className="flex-2 my-[0.7rem] mr-[1rem]">
-            <Link href={"/login"} className="flex flex-row gap-x-2 mt-1">
-              <span className="relative text-black">Masuk</span>
-              <span className="relative text-2xl text-black">
-                <MdOutlinePersonOutline />
-              </span>
-            </Link>
-          </div>
+          {token ? (
+            <div className="flex-2 my-[0.7rem] mr-[1rem]">
+              <Link href={"/login"} className="flex flex-row gap-x-2 mt-1">
+                <span className="relative text-black">{userData?.name}</span>
+                <span className="relative text-2xl text-black">
+                  <IoMdPerson />
+                </span>
+              </Link>
+            </div>
+          ) : (
+            <div className="flex-2 my-[0.7rem] mr-[1rem]">
+              <Link href={"/login"} className="flex flex-row gap-x-2 mt-1">
+                <span className="relative text-black">Masuk</span>
+                <span className="relative text-2xl text-black">
+                  <MdOutlinePersonOutline />
+                </span>
+              </Link>
+            </div>
+          )}
+
           <div className="flex-2 my-[0.7rem] mr-[1rem]">
             <Link
               href={"/wishlist"}

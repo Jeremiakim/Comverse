@@ -26,7 +26,7 @@ const Home = () => {
                       <p className="text-white text-4xl font-extrabold mb-5">
                         Chuck Taylor All Star High Top
                       </p>
-                      <p className="text-white mb-5 mt-[2rem] ml-2">
+                      <p className="text-white text-justify mb-5 mt-[2rem] ml-2">
                         The Converse Chuck Taylor All Star is the one that
                         started it all for Converse. When it comes to sneakers,
                         there’s nothing more pure than a canvas upper and a
