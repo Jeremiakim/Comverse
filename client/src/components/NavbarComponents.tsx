@@ -8,6 +8,7 @@ import { GiConverseShoe } from "react-icons/gi";
 import { CiShoppingCart } from "react-icons/ci";
 import ButtonLogout from "./ButtonLogout";
 import { jwtDecode } from "jwt-decode";
+import { JwtPayload } from "jsonwebtoken";
 
 const Navbar = () => {
   const cookiesStore = cookies();
