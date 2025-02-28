@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const token = cookiesStore.get("token");
 
-  const exist: RequestCookie | undefined = token?.value;
+  const exist: string | undefined = token?.value;
   let userData: JwtPayload | null = null;
   if (exist) {
     const decodedToken = jwtDecode(exist, {});
