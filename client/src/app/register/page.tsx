@@ -35,7 +35,7 @@ const RegisterPage = () => {
         body: JSON.stringify({
           name: FormData.get("name"),
           username: FormData.get("username"),
-          email: FormData.get("email"),
+          email: FormData.get("email"),   
           password: FormData.get("password"),
         }),
         headers: {
@@ -95,6 +95,7 @@ const RegisterPage = () => {
                     type="password"
                     placeholder="Password"
                     name="password"
+                    autoComplete="off"
                   />
                   <button
                     className="mt-5 tracking-wide font-semibold bg-gray-400 text-gray-100 w-full py-3 rounded-lg hover:bg-black transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"

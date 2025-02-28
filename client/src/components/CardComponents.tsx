@@ -22,7 +22,7 @@ const CardComponents = async () => {
         return (
           <Link href={`/products/${product.slug}`} key={idx}>
             <Card
-              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[30rem]"
+              className="max-w-[45rem] hover:scale-105 transition duration-500 cursor-pointer h-[35rem]"
               imgAlt="Converse Belmont Vintage Athletic"
               imgSrc={product.thumbnail}
             >
